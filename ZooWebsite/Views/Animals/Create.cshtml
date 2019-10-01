@@ -1,0 +1,30 @@
+﻿@model ZooWebsite.Models.Animals
+@{
+    Layout = "_Layout";
+}
+
+<h1>Add Animals</h1>
+
+<fieldset>
+    
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary()
+
+        <p>
+            @Html.LabelFor(x => x.AnimalName)
+            @Html.EditorFor(x => x.AnimalName)
+            @Html.ValidationMessageFor(x => x.AnimalName)
+        </p>
+        <p>
+            @Html.LabelFor(x => x.AnimalDescription)
+            @Html.EditorFor(x => x.AnimalDescription)
+            @Html.ValidationMessageFor(x => x.AnimalDescription)
+        </p>
+        <p>
+            <button type="submit">Add Animal</button>
+        </p>
+
+    }
+
+</fieldset>
