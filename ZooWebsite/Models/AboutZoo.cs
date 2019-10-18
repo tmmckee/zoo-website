@@ -12,7 +12,7 @@ namespace ZooWebsite.Models
         public int AboutZooID { get; set; }
 
         [Required]
-        [Column(TypeName = "nvarchar(100)")]
+        [DataType(DataType.MultilineText)]
         [Display(Name = "About Zoo Description")]
         public string Description { get; set; }
 

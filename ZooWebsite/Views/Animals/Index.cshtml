@@ -1,8 +1,45 @@
-﻿@model ZooWebsite.Models.Animals
+﻿@model IEnumerable<ZooWebsite.Models.Animals>
+
 @{
-    Layout = "_Layout";
-        }
+    ViewData["Title"] = "Index";
+}
 
-<h1>Animals page</h1>
-
-<p>This is all about the animals, and will show animals in a partial view so that you can browse the animals</p>
+<header class="w3-container w3-teal">
+    <h1>Animals</h1>
+</header>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<div class="w3-container">
+    <table class="table w3-light-blue">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.AnimalName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AnimalDescription)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AnimalName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AnimalDescription)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.AnimalId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.AnimalId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.AnimalId">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

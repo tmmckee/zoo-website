@@ -1,30 +1,35 @@
 ﻿@model ZooWebsite.Models.Animals
+
 @{
-    Layout = "_Layout";
+    ViewData["Title"] = "Create";
 }
 
-<h1>Add Animals</h1>
+<h1>Create</h1>
 
-<fieldset>
-    
-    @using (Html.BeginForm())
-    {
-        @Html.ValidationSummary()
+<h4>Animals</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="AnimalName" class="control-label"></label>
+                <input asp-for="AnimalName" class="form-control" />
+                <span asp-validation-for="AnimalName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AnimalDescription" class="control-label"></label>
+                <textarea asp-for="AnimalDescription" class="form-control"></textarea>
+                <span asp-validation-for="AnimalDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
 
-        <p>
-            @Html.LabelFor(x => x.AnimalName)
-            @Html.EditorFor(x => x.AnimalName)
-            @Html.ValidationMessageFor(x => x.AnimalName)
-        </p>
-        <p>
-            @Html.LabelFor(x => x.AnimalDescription)
-            @Html.EditorFor(x => x.AnimalDescription)
-            @Html.ValidationMessageFor(x => x.AnimalDescription)
-        </p>
-        <p>
-            <button type="submit">Add Animal</button>
-        </p>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
 
-    }
-
-</fieldset>

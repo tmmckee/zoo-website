@@ -12,13 +12,16 @@ namespace ZooWebsite.Models
         public int AnnouncementId { get; set; }
 
         [Required]
-        [Column(TypeName = "nvarchar(100)")]
-        [Display(Name = "Announcement Description")]
-        public string AnnouncementText { get; set; }
+        [Column(TypeName = "nvarchar(30)")]
+        [Display(Name = "Title")]
+        public string AnnouncementTitle { get; set; }
 
         [Required]
-        [DataType(DataType.Date)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy")]
+        [Column(TypeName = "nvarchar(max)")]
+        [Display(Name = "Announcement")]
+        [DataType(DataType.MultilineText)]
+        public string AnnouncementText { get; set; }
+
         public DateTime Date { get; set; }
 
     }

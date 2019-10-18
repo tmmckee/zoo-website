@@ -45,6 +45,10 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
 }
+.trees {
+    background-image: url(../Images/color-conifer-daylight-1179229.jpg);
+    background-color: transparent;
+}
 .footer {
   position: absolute;
   bottom: 0;
